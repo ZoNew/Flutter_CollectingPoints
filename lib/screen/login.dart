@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:test_point_system/model/profile.dart';
 import 'package:test_point_system/screen/home.dart';
+import 'package:test_point_system/screen/register.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -95,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) {
-                            return HomeScreen();
+                            return RegisterScreen();
                           }),
                         );
                       },
