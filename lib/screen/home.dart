@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
           currentIndex: _currentIndex,
           backgroundColor: colorScheme.surface,
           selectedItemColor: colorScheme.onSurface,
-          unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
+          unselectedItemColor: colorScheme.onSurface.withOpacity(.50),
           selectedLabelStyle: textTheme.caption,
           unselectedLabelStyle: textTheme.caption,
           onTap: (value) {
