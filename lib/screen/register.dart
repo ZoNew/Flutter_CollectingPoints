@@ -130,15 +130,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             formKey.currentState!.save();
                             try {
                               Fluttertoast.showToast(msg: "ลงทะเบียนเรีนยร้อย");
-                              print("${user.name}, ${user.password}, ${user.email}, ${user.tel}, ${user.role}, ${user.usrCollect}");
-                            Navigator.pushReplacement(
+                              print(
+                                  "${user.name}, ${user.password}, ${user.email}, ${user.tel}, ${user.role}, ${user.usrCollect}");
+                              Navigator.pop(context);
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(builder: (context) {
                                   return HomeScreen();
                                 }),
                               );
-                            }
-                            catch (e) {
+                            } catch (e) {
                               print(e.toString());
                               Fluttertoast.showToast(
                                 msg: e.toString(),

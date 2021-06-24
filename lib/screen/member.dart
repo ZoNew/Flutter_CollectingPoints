@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:test_point_system/screen/login.dart';
+
+import 'register.dart';
 
 class MembersScreen extends StatefulWidget {
   const MembersScreen({Key? key}) : super(key: key);
@@ -20,16 +24,38 @@ class _MembersScreenState extends State<MembersScreen> {
           )
         ],
       ),
-      body: Center(
-        child: Text("Members"),
+      body: ListView.builder(
+        itemCount: 4,
+        itemBuilder: (context, index) {
+          return Card(
+            elevation: 5,
+            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+            child: ListTile(
+              title: Text("0801111222 #$index"),
+              subtitle: Text("นิติ บอย "),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return LoginScreen();
+                  }),
+                );
+              },
+            ),
+          );
+        },
       ),
     );
   }
 
-  void _pushSaved(){
-
+  void _pushSaved() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return RegisterScreen();
+      }),
+    );
   }
-
 }
 
 /*
