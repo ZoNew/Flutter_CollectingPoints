@@ -60,6 +60,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       profile.password = password;
                     },
                   ),
+                  SizedBox(
+                    height: 50,
+                  ),
                   // Button Login
                   SizedBox(
                     width: double.infinity,

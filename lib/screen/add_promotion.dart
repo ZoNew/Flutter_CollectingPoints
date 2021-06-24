@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:test_point_system/model/promotion.dart';
 
+import 'add_collect.dart';
 import 'home.dart';
 
 class AddPromotionScreen extends StatefulWidget {
@@ -38,7 +39,7 @@ class _AddPromotionScreenState extends State<AddPromotionScreen> {
                     TextFormField(
                       autofocus: true,
                       validator: RequiredValidator(
-                          errorText: "กรุณาป้อน ชื่อโปรโมชัน"),
+                          errorText: "กรุณาป้อน ชื่อ"),
                       onSaved: (String? name) {
                         promotion.name = name;
                       },
@@ -71,11 +72,10 @@ class _AddPromotionScreenState extends State<AddPromotionScreen> {
                               Fluttertoast.showToast(msg: "สร้างโปรโมชันเรียบร้อย");
                               print(
                                   "${promotion.name}, ${promotion.targetPoint}");
-                              Navigator.pop(context);
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(builder: (context) {
-                                  return HomeScreen();
+                                  return AddCollectScreen();
                                 }),
                               );
                             } catch (e) {
