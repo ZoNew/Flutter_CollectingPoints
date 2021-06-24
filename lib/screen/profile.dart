@@ -15,7 +15,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text("โปรไฟล์"),
       ),
       body: ElevatedButton(
         onPressed: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_point_system/screen/add_promotion.dart';
 
 import 'login.dart';
 
@@ -14,7 +15,7 @@ class _PromotionScreenState extends State<PromotionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Promotions"),
+        title: Text("โปรโมชัน"),
         actions: [
           IconButton(
             onPressed: _pushSaved,
@@ -29,13 +30,14 @@ class _PromotionScreenState extends State<PromotionScreen> {
             elevation: 5,
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             child: ListTile(
-              contentPadding: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 15, horizontal: 10),
               title: Text("10 Free $index"),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return LoginScreen();
+                    return AddPromotionScreen();
                   }),
                 );
               },
@@ -46,5 +48,12 @@ class _PromotionScreenState extends State<PromotionScreen> {
     );
   }
 
-  void _pushSaved() {}
+  void _pushSaved() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return AddPromotionScreen();
+      }),
+    );
+  }
 }

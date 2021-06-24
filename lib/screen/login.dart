@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         }
                       },
                       child:
-                          Text("ลงชื่อเข้าใช้", style: TextStyle(fontSize: 20)),
+                          Text("เข้าสู่ระบบ", style: TextStyle(fontSize: 20)),
                     ),
                   ),
                   SizedBox(

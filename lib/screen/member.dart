@@ -16,7 +16,7 @@ class _MembersScreenState extends State<MembersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Members"),
+        title: Text("สมาชิก"),
         actions: [
           IconButton(
             onPressed: _pushSaved,
