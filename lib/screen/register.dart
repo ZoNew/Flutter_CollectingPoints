@@ -59,6 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       validator: MultiValidator([
                         RequiredValidator(errorText: "กรุณาป้อน รหัสผ่าน"),
                       ]),
+                      obscureText: true,
                       keyboardType: TextInputType.number,
                     ),
                     SizedBox(
@@ -79,6 +80,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         }
                         return null;
                       },
+                      obscureText: true,
                       keyboardType: TextInputType.number,
                       onSaved: (String? password) {
                         user.password = password;
@@ -127,6 +129,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             try {
+                              Fluttertoast.showToast(msg: "ลงทะเบียนเรีนยร้อย");
                               print("${user.name}, ${user.password}, ${user.email}, ${user.tel}, ${user.role}, ${user.usrCollect}");
                             Navigator.pushReplacement(
                                 context,
