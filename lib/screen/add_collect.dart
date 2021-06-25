@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:test_point_system/model/collect.dart';
+import 'package:test_point_system/screen/detail_promotion.dart';
 import 'package:test_point_system/screen/login.dart';
 
 class AddCollectScreen extends StatefulWidget {
@@ -14,9 +15,28 @@ class AddCollectScreen extends StatefulWidget {
 class _AddCollectScreenState extends State<AddCollectScreen> {
   final formKey = GlobalKey<FormState>();
   Collect collect = Collect();
+  String? _dropdownValue;
+  bool isEnable = false;
+  final textFormFieldPrice = TextEditingController();
+
+  List<DropdownMenuItem<String>> _unitList = [
+    "stamp",
+    "point",
+    "แต้ม",
+    "ความดี",
+  ].map<DropdownMenuItem<String>>((String value) {
+    return DropdownMenuItem<String>(
+      value: value,
+      child: Text(value),
+    );
+  }).toList();
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    if (isEnable == true) {}
+    ;
+    double _fontSize = 18.0;
     return Scaffold(
       appBar: AppBar(
         title: Text("วิธีรับคะแนน"),
@@ -57,17 +77,46 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
                       },
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 50,
                     ),
                     Row(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        DropdownButton(
-                          items: _unit,
-                          hint: Text("เลือกหน่วย"),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "หน่วยคะแนน",
+                              style: TextStyle(fontSize: _fontSize),
+                            ),
+
+                            Container(
+                              width: 120,
+                              child: DropdownButtonFormField<String>(
+                                validator: (value) {
+                                  if (value == null) {
+                                    return "กรุณาเลือกหน่วย";
+                                  }
+                                },
+                                value: _dropdownValue,
+                                hint: Text("เลือกหน่วย"),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    _dropdownValue = newValue;
+                                  });
+                                },
+                                items: _unitList,
+                                onSaved: (val) {
+                                  collect.collectUnit = val;
+                                },
+                              ),
+                            ),
+                          ],
                         ),
-                        Text("หรือ",style: TextStyle(fontSize: _fontSize),),
+                        Text(
+                          "หรือ",
+                          style: TextStyle(fontSize: _fontSize),
+                        ),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(context,
@@ -76,12 +125,44 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
                             }));
                           },
                           child: Text("สร้างหน่วย",
-                              style: TextStyle(fontSize: 20)),
+                              style: TextStyle(fontSize: _fontSize)),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 50,
+                    ),
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: isEnable,
+                          onChanged: (value) {
+                            setState(() {
+                              isEnable = value!;
+                              textFormFieldPrice.clear();
+                            });
+                          },
+                        ),
+                        Text(
+                          "จำนวนเงินที่จะได้แต้ม",
+                          style: TextStyle(fontSize: _fontSize),
+                        )
+                      ],
+                    ),
+                    TextFormField(
+                      controller: textFormFieldPrice,
+                      enabled: isEnable,
+                      keyboardType: TextInputType.number,
+                      onSaved: (String? price) {
+                        if (price!.isNotEmpty) {
+                          collect.price = int.parse(price);
+                        }
+                      },
+                      decoration:
+                          InputDecoration(hintText: "ราคาที่ได้รับคะแนน"),
+                    ),
+                    SizedBox(
+                      height: 50,
                     ),
                     SizedBox(
                       width: double.infinity,
@@ -92,19 +173,23 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
                             formKey.currentState!.save();
                             try {
                               Fluttertoast.showToast(
-                                  msg: "เพิ่มวิธีรับคะแนนเรียบร้อย");
-                              print("${collect.name}, ${collect.rewardPoint}");
-                              /*Navigator.pushReplacement(
+                                msg: "เพิ่มวิธีรับคะแนนเรียบร้อย",
+                                gravity: ToastGravity.TOP,
+                              );
+
+                              print(
+                                  "${collect.name}, ${collect.rewardPoint}, ${collect.collectUnit}, ${collect.price}");
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(builder: (context) {
-                                  return AddCollectScreen();
+                                  return DetailPromotionScreen();
                                 }),
-                              );*/
+                              );
                             } catch (e) {
                               print(e.toString());
                               Fluttertoast.showToast(
                                 msg: e.toString(),
-                                gravity: ToastGravity.CENTER,
+                                gravity: ToastGravity.TOP,
                               );
                             }
                           }
@@ -122,19 +207,4 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
   }
 }
 
-final double _fontSize = 20;
-
-List<DropdownMenuItem<String>> _unit = [
-  "stamp",
-  "point",
-  "แต้ม",
-  "ความดี",
-].map<DropdownMenuItem<String>>((String value) {
-  return DropdownMenuItem<String>(
-    value: value,
-    child: Text(
-      value,
-      style: TextStyle(color: Colors.black),
-    ),
-  );
-}).toList();
+void onChanged() {}

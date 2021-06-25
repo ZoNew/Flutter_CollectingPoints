@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_point_system/screen/add_collect.dart';
+import 'package:test_point_system/screen/add_collect_unit.dart';
 import 'package:test_point_system/screen/login.dart';
 
 void main() {
@@ -31,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return LoginScreen();
+    return AddCollectUnit();
   }
 }
 

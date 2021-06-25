@@ -82,7 +82,7 @@ class _AddPromotionScreenState extends State<AddPromotionScreen> {
                               print(e.toString());
                               Fluttertoast.showToast(
                                 msg: e.toString(),
-                                gravity: ToastGravity.CENTER,
+                                gravity: ToastGravity.TOP,
                               );
                             }
                           }
