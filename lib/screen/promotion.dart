@@ -51,9 +51,11 @@ class _PromotionScreenState extends State<PromotionScreen> {
   void _pushSaved() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) {
-        return AddPromotionScreen();
-      }),
+      MaterialPageRoute(
+        builder: (context) {
+          return AddPromotionScreen();
+        },
+      ),
     );
   }
 }
