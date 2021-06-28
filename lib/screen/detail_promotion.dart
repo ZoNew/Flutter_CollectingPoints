@@ -3,8 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:test_point_system/screen/add_collect.dart';
 import 'package:test_point_system/widget/collect_box.dart';
 
-import 'login.dart';
-
 class DetailPromotionScreen extends StatefulWidget {
   const DetailPromotionScreen({Key? key}) : super(key: key);
 
@@ -70,7 +68,7 @@ class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
                     return CollectBox(listCollectBox[index].name, listCollectBox[index].rewardPoint, listCollectBox[index].collectUnit);
                   },
                 ),
-              )
+              ),
             ],
           ),
         ),

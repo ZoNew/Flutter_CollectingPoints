@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 import 'package:test_point_system/model/collect_unit.dart';
-import 'package:test_point_system/screen/home.dart';
 
 class AddCollectUnitScreen extends StatefulWidget {
   const AddCollectUnitScreen({Key? key}) : super(key: key);
