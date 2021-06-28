@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_point_system/screen/add_promotion.dart';
+import 'package:test_point_system/screen/detail_promotion.dart';
 
 import 'login.dart';
 
@@ -37,7 +38,7 @@ class _PromotionScreenState extends State<PromotionScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return AddPromotionScreen();
+                    return DetailPromotionScreen();
                   }),
                 );
               },

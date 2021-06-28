@@ -3,4 +3,5 @@ class Promotion{
   int? targetPoint;
 
   Promotion({this.name,this.targetPoint});
+
 }

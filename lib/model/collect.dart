@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 class Collect {
   String? name;
   int? rewardPoint;
@@ -8,4 +11,6 @@ class Collect {
     rewardPoint = 0;
     price = 0;
   }
+
+
 }
