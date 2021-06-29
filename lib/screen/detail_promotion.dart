@@ -15,10 +15,10 @@ class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
     new CollectBox("ขวดพลาสติก", 3, "point"),
     new CollectBox("ขวดแก้ว", 2, "point"),
     new CollectBox("กระป๋อง", 1, "point"),
-    new   CollectBox("ขวดพลาสติก", 5, "point"),
-    new  CollectBox("ขวดแก้ว", 2, "point"),
-    new  CollectBox("กระป๋อง", 4, "point"),
-    new  CollectBox("ขวดพลาสติก", 3, "point"),
+    new CollectBox("ถุงก๊อปแก๊บ", 5, "point"),
+    new CollectBox("ขวดแก้ว", 2, "point"),
+    new CollectBox("กระป๋อง", 4, "point"),
+    new CollectBox("ขวดพลาสติก", 3, "point"),
     new CollectBox("ขวดแก้ว", 2, "point"),
     new CollectBox("กระป๋อง", 1, "point"),
   ];
@@ -55,6 +55,11 @@ class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
                 "1,000 point",
                 style: TextStyle(fontSize: 25),
               ),
+              Text(
+                //promotion.targetPoint
+                "วีทีรับคะแนน",
+                style: TextStyle(fontSize: 15),
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -65,7 +70,10 @@ class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
                   shrinkWrap: true,
                   itemCount: listCollectBox.length,
                   itemBuilder: (context, index) {
-                    return CollectBox(listCollectBox[index].name, listCollectBox[index].rewardPoint, listCollectBox[index].collectUnit);
+                    return CollectBox(
+                        listCollectBox[index].name,
+                        listCollectBox[index].rewardPoint,
+                        listCollectBox[index].collectUnit);
                   },
                 ),
               ),

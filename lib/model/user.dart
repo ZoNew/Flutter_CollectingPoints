@@ -4,11 +4,11 @@ class User {
   String? email;
   String? tel;
   String? role;
-  String? usrCollect;
+  List<String>? usrCollect;
   User({this.name,this.password,this.email,this.tel,this.role,this.usrCollect}){
     email = "No email";
     tel = "No tel";
     role = "usr";
-    usrCollect = "[]";
+    usrCollect = [];
   }
 }

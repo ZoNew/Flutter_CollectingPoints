@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:test_point_system/screen/add_collect.dart';
-import 'package:test_point_system/widget/collect_box.dart';
+import 'package:test_point_system/screen/add_point.dart';
+import 'package:test_point_system/screen/redeem.dart';
+import 'package:test_point_system/widget/point_list_view.dart';
 
 class DetailMemberScreen extends StatefulWidget {
   const DetailMemberScreen({Key? key}) : super(key: key);
@@ -12,16 +14,14 @@ class DetailMemberScreen extends StatefulWidget {
 }
 
 class _DetailMemberScreenState extends State<DetailMemberScreen> {
-  List<CollectBox> listCollectBox = [
-    new CollectBox("ขวดพลาสติก", 3, "point"),
-    new CollectBox("ขวดแก้ว", 2, "point"),
-    new CollectBox("กระป๋อง", 1, "point"),
-    new CollectBox("ขวดพลาสติก", 5, "point"),
-    new CollectBox("ขวดแก้ว", 2, "point"),
-    new CollectBox("กระป๋อง", 4, "point"),
-    new CollectBox("ขวดพลาสติก", 3, "point"),
-    new CollectBox("ขวดแก้ว", 2, "point"),
-    new CollectBox("กระป๋อง", 1, "point"),
+  List<PointListView> listCollectBox = [
+    // new CollectBox(name: "ขวดพลาสติก",rewardPoint:  3,collectUnit: "point"),
+    new PointListView(10, "point"),
+    new PointListView(1000, "ความดี"),
+    new PointListView(4, "stamp"),
+    new PointListView(1, "แก้วหมี"),
+    new PointListView(8, "มูมู่"),
+    new PointListView(4, "กล้าหาญ"),
   ];
 
   @override
@@ -71,6 +71,12 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
                             msg: "<ทดสอบเพิ่มคะแนน>",
                             gravity: ToastGravity.BOTTOM,
                           );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return AddPointScreen();
+                            }),
+                          );
                         },
                         child: Text(
                           "เพิ่มคะแนน",
@@ -90,6 +96,12 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
                             msg: "<ทดสอบแลกรางวัล>",
                             gravity: ToastGravity.BOTTOM,
                           );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return RedeemScreen();
+                            }),
+                          );
                         },
                         child: Text(
                           "แลกรางวัล",
@@ -102,17 +114,19 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
                     ),
                     Row(
                       children: [
-                        Text(
-                          "คะแนน",
-                          style: TextStyle(fontSize: 20),
+                        Expanded(
+                          child: Text(
+                            "คะแนน",
+                            style: TextStyle(fontSize: 20),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
-                        SizedBox(
-                          width: 60,
-                        ),
-                        Text(
-                          "เป้าหมาย",
-                          style: TextStyle(fontSize: 20),
-                          textAlign: TextAlign.center,
+                        Expanded(
+                          child: Text(
+                            "หน่วย",
+                            style: TextStyle(fontSize: 20),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ],
                     ),
@@ -125,10 +139,10 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
                         shrinkWrap: true,
                         itemCount: listCollectBox.length,
                         itemBuilder: (context, index) {
-                          return CollectBox(
-                              listCollectBox[index].name,
-                              listCollectBox[index].rewardPoint,
-                              listCollectBox[index].collectUnit);
+                          return PointListView(
+                            listCollectBox[index].point,
+                            listCollectBox[index].unit,
+                          );
                         },
                       ),
                     )
