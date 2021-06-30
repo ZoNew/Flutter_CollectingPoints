@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:test_point_system/model/collect.dart';
-import 'package:test_point_system/screen/add_collect_unit.dart';
-import 'package:test_point_system/screen/detail_promotion.dart';
+import 'package:collecting_points/model/collect.dart';
+import 'package:collecting_points/screen/add_collect_unit.dart';
+import 'package:collecting_points/screen/detail_promotion.dart';
 
 class AddCollectScreen extends StatefulWidget {
   const AddCollectScreen({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:test_point_system/model/promotion.dart';
+import 'package:collecting_points/model/promotion.dart';
 
 import 'add_collect.dart';
 import 'home.dart';

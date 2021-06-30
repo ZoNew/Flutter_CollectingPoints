@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:test_point_system/screen/add_collect.dart';
-import 'package:test_point_system/widget/collect_box.dart';
+import 'package:collecting_points/screen/add_collect.dart';
+import 'package:collecting_points/widget/collect_box.dart';
 
 class DetailPromotionScreen extends StatefulWidget {
   const DetailPromotionScreen({Key? key}) : super(key: key);

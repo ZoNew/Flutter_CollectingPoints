@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:form_field_validator/form_field_validator.dart';
-import 'package:test_point_system/model/user_collect.dart';
-import 'package:test_point_system/widget/point_list_view.dart';
+import 'package:collecting_points/model/user_collect.dart';
+import 'package:collecting_points/widget/point_list_view.dart';
 
 class AddPointScreen extends StatefulWidget {
   const AddPointScreen({Key? key}) : super(key: key);

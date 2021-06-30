@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:test_point_system/screen/login.dart';
-import 'package:test_point_system/screen/member.dart';
-import 'package:test_point_system/screen/profile.dart';
-import 'package:test_point_system/screen/promotion.dart';
+import 'package:collecting_points/screen/member.dart';
+import 'package:collecting_points/screen/profile.dart';
+import 'package:collecting_points/screen/promotion.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

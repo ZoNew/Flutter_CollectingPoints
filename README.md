@@ -1,4 +1,4 @@
-# test_point_system
+# collecting_points
 
 A new Flutter project.
 
