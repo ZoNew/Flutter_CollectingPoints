@@ -1,26 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:collecting_points/screen/member.dart';
 import 'package:collecting_points/screen/profile.dart';
-import 'package:collecting_points/screen/promotion.dart';
+import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class UsrHomeScreen extends StatefulWidget {
+  const UsrHomeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _UsrHomeScreenState createState() => _UsrHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _UsrHomeScreenState extends State<UsrHomeScreen> {
 
   List<BottomNavigationBarItem> _menuBar
   = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
-      label: 'โปรโมชัน',
-      icon: Icon(Icons.store),
-    ),
-    BottomNavigationBarItem(
-      label: 'สมาชิก',
-      icon: Icon(Icons.people),
+      label: 'แต้มสะสม',
+      icon: Icon(Icons.article),
     ),
     BottomNavigationBarItem(
       label: 'โปรไฟล์',
@@ -33,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     final colorScheme = Theme
         .of(context)
         .colorScheme;
@@ -40,8 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         .of(context)
         .textTheme;
     final List<Widget> _children = [
-      PromotionScreen(),
-      MembersScreen(),
+      UsrHomeScreen(),
       ProfileScreen(),
     ];
 

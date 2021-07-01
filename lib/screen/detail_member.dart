@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:test_point_system/screen/add_collect.dart';
-import 'package:test_point_system/screen/add_point.dart';
-import 'package:test_point_system/screen/redeem.dart';
-import 'package:test_point_system/widget/point_list_view.dart';
+import 'package:collecting_points/screen/add_collect.dart';
+import 'package:collecting_points/screen/add_point.dart';
+import 'package:collecting_points/screen/redeem.dart';
+import 'package:collecting_points/widget/point_list_view.dart';
 
 class DetailMemberScreen extends StatefulWidget {
   const DetailMemberScreen({Key? key}) : super(key: key);

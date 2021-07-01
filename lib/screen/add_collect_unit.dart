@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:test_point_system/model/collect_unit.dart';
+import 'package:collecting_points/model/collect_unit.dart';
 
 class AddCollectUnitScreen extends StatefulWidget {
   const AddCollectUnitScreen({Key? key}) : super(key: key);

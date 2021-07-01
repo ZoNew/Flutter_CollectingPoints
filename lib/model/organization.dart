@@ -1,4 +1,4 @@
-import 'package:test_point_system/model/user.dart';
+import 'package:collecting_points/model/user.dart';
 
 class Organization {
   String? name;
