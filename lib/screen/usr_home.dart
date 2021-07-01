@@ -1,5 +1,7 @@
-import 'package:collecting_points/screen/profile.dart';
 import 'package:flutter/material.dart';
+
+import 'profile.dart';
+import 'usr_collect_point.dart';
 
 class UsrHomeScreen extends StatefulWidget {
   const UsrHomeScreen({Key? key}) : super(key: key);
@@ -23,7 +25,7 @@ class _UsrHomeScreenState extends State<UsrHomeScreen> {
   ];
 
 
-  int _currentIndex = 1; // default page
+  int _currentIndex = 0; // default page
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class _UsrHomeScreenState extends State<UsrHomeScreen> {
         .of(context)
         .textTheme;
     final List<Widget> _children = [
-      UsrHomeScreen(),
+      UsrCollectPointScreen(),
       ProfileScreen(),
     ];
 
