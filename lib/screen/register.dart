@@ -33,12 +33,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "ชื่อ",
-                      style: TextStyle(fontSize: 20),
-                    ),
                     TextFormField(
                       autofocus: true,
+                      decoration: InputDecoration(labelText: "ชื่อ"),
                       validator: MultiValidator([
                         RequiredValidator(errorText: "กรุณาป้อน ชื่อ"),
                       ]),
@@ -49,12 +46,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      "รหัสผ่าน",
-                      style: TextStyle(fontSize: 20),
-                    ),
                     TextFormField(
                       controller: _pass,
+                      decoration: InputDecoration(labelText: "รหัสผ่าน"),
                       validator: MultiValidator([
                         RequiredValidator(errorText: "กรุณาป้อน รหัสผ่าน"),
                       ]),
@@ -64,12 +58,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      "รหัสผ่าน",
-                      style: TextStyle(fontSize: 20),
-                    ),
                     TextFormField(
                       controller: _confirmPass,
+                      decoration: InputDecoration(labelText: "ยืนยันรหัสผ่าน"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'กรุณาป้อน รหัสผ่าน';
@@ -88,11 +79,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      "อีเมล",
-                      style: TextStyle(fontSize: 20),
-                    ),
                     TextFormField(
+                      decoration: InputDecoration(labelText: "อีเมล"),
                       validator: MultiValidator([
                         RequiredValidator(errorText: "กรุณาป้อน อีเมล"),
                         EmailValidator(errorText: "รูปแบบอีเมลไม่ถูกต้อง"),
@@ -105,11 +93,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      "เบอร์โทร",
-                      style: TextStyle(fontSize: 20),
-                    ),
                     TextFormField(
+                      decoration: InputDecoration(labelText: "เบอร์โทร"),
                       validator: MultiValidator([
                         RequiredValidator(errorText: "กรุณาป้อน เบอร์โทร"),
                       ]),
@@ -121,34 +106,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(
                       height: 15,
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            formKey.currentState!.save();
-                            try {
-                              Fluttertoast.showToast(msg: "ลงทะเบียนเรีนยร้อย");
-                              print(
-                                  "${user.name}, ${user.password}, ${user.email}, ${user.tel}, ${user.role}, ${user.usrCollect}");
-                              Navigator.pop(context);
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return HomeScreen();
-                                }),
-                              );
-                            } catch (e) {
-                              print(e.toString());
-                              Fluttertoast.showToast(
-                                msg: e.toString(),
-                                gravity: ToastGravity.CENTER,
-                              );
+                    Center(
+                      child: SizedBox(
+                        width: 180,
+                        height: 50,
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            if (formKey.currentState!.validate()) {
+                              formKey.currentState!.save();
+                              try {
+                                Fluttertoast.showToast(msg: "ลงทะเบียนเรีนยร้อย");
+                                print(
+                                    "${user.name}, ${user.password}, ${user.email}, ${user.tel}, ${user.role}, ${user.usrCollect}");
+                                Navigator.pop(context);
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return HomeScreen();
+                                  }),
+                                );
+                              } catch (e) {
+                                print(e.toString());
+                                Fluttertoast.showToast(
+                                  msg: e.toString(),
+                                  gravity: ToastGravity.CENTER,
+                                );
+                              }
                             }
-                          }
-                        },
-                        child:
-                            Text("ลงทะเบียน", style: TextStyle(fontSize: 20)),
+                          },
+                          child:
+                              Text("ลงทะเบียน", style: TextStyle(fontSize: 20)),
+                        ),
                       ),
                     ),
                   ]),

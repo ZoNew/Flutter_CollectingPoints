@@ -17,20 +17,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         title: Text("โปรไฟล์"),
       ),
-      body: ElevatedButton(
-        onPressed: () {
-          Fluttertoast.showToast(
-            msg: "ออกจากระบบเรียบร้อยแล้ว",
-            gravity: ToastGravity.BOTTOM,
-          );
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return LoginScreen();
-            }),
-          );
-        },
-        child: Text("ออกจากระบบ"),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: SizedBox(
+            height: 50,
+            child: ElevatedButton(
+              onPressed: () {
+                Fluttertoast.showToast(
+                  msg: "ออกจากระบบเรียบร้อยแล้ว",
+                  gravity: ToastGravity.BOTTOM,
+                );
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return LoginScreen();
+                  }),
+                );
+              },
+              child: Text("ออกจากระบบ"),
+            ),
+          ),
+        ),
       ),
     );
   }

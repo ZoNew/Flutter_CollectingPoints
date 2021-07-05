@@ -14,7 +14,7 @@ class _SearchUserScreenState extends State<SearchUserScreen> {
       appBar: AppBar(
         title: Text("รายชื่อ"),
       ),
-      body: 
+      // body:
     );
   }
 }

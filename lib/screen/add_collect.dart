@@ -47,12 +47,9 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "ชื่อวิธีรับคะแนน",
-                    style: TextStyle(fontSize: _fontSize),
-                  ),
                   TextFormField(
                     autofocus: true,
+                    decoration: InputDecoration(labelText: "ชื่อวิธีรับคะแนน"),
                     validator: RequiredValidator(errorText: "กรุณาป้อน ชื่อ"),
                     onSaved: (String? name) {
                       collect.name = name;
@@ -61,11 +58,8 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
                   SizedBox(
                     height: 15,
                   ),
-                  Text(
-                    "คะแนนที่ได้รับ",
-                    style: TextStyle(fontSize: _fontSize),
-                  ),
                   TextFormField(
+                    decoration: InputDecoration(labelText: "คะแนนที่ได้รับ"),
                     validator:
                         RequiredValidator(errorText: "กรุณาป้อน คะแนน"),
                     keyboardType: TextInputType.number,
@@ -156,43 +150,45 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
                       }
                     },
                     decoration:
-                        InputDecoration(hintText: "ราคาที่ได้รับคะแนน"),
+                        InputDecoration(labelText: "ราคาที่ได้รับคะแนน"),
                   ),
                   SizedBox(
                     height: 50,
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        if (formKey.currentState!.validate()) {
-                          formKey.currentState!.save();
-                          try {
-                            Fluttertoast.showToast(
-                              msg: "เพิ่มวิธีรับคะแนนเรียบร้อย",
-                              gravity: ToastGravity.TOP,
-                            );
+                  Center(
+                    child: SizedBox(
+                      width: 180,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            try {
+                              Fluttertoast.showToast(
+                                msg: "เพิ่มวิธีรับคะแนนเรียบร้อย",
+                                gravity: ToastGravity.TOP,
+                              );
 
-                            print(
-                                "${collect.name}, ${collect.rewardPoint}, ${collect.collectUnit}, ${collect.price}");
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return DetailPromotionScreen();
-                              }),
-                            );
-                          } catch (e) {
-                            print(e.toString());
-                            Fluttertoast.showToast(
-                              msg: e.toString(),
-                              gravity: ToastGravity.TOP,
-                            );
+                              print(
+                                  "${collect.name}, ${collect.rewardPoint}, ${collect.collectUnit}, ${collect.price}");
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) {
+                                  return DetailPromotionScreen();
+                                }),
+                              );
+                            } catch (e) {
+                              print(e.toString());
+                              Fluttertoast.showToast(
+                                msg: e.toString(),
+                                gravity: ToastGravity.TOP,
+                              );
+                            }
                           }
-                        }
-                      },
-                      child: Text("เพิ่มวิธีรับคะแนน",
-                          style: TextStyle(fontSize: _fontSize)),
+                        },
+                        child: Text("เพิ่มวิธีรับคะแนน",
+                            style: TextStyle(fontSize: _fontSize)),
+                      ),
                     ),
                   ),
                 ]),

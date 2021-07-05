@@ -28,8 +28,8 @@ class _AddCollectUnitScreenState extends State<AddCollectUnitScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("ชื่อหน่วยคะแนน"),
                   TextFormField(
+                    decoration: InputDecoration(labelText: "ชื่อหน่วยคะแนน"),
                     autofocus: true,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -43,31 +43,33 @@ class _AddCollectUnitScreenState extends State<AddCollectUnitScreen> {
                   SizedBox(
                     height: 50,
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        if (formKey.currentState!.validate()) {
-                          formKey.currentState!.save();
-                          try {
-                            Fluttertoast.showToast(
-                              msg: "สร้างหน่วยคะแนนเรียบร้อย",
-                              gravity: ToastGravity.TOP,
-                            );
+                  Center(
+                    child: SizedBox(
+                      width: 180,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            try {
+                              Fluttertoast.showToast(
+                                msg: "สร้างหน่วยคะแนนเรียบร้อย",
+                                gravity: ToastGravity.TOP,
+                              );
 
-                            print("${_unit.name}");
-                            Navigator.pop(context);
-                          } catch (e) {
-                            print(e.toString());
-                            Fluttertoast.showToast(
-                              msg: e.toString(),
-                              gravity: ToastGravity.TOP,
-                            );
+                              print("${_unit.name}");
+                              Navigator.pop(context);
+                            } catch (e) {
+                              print(e.toString());
+                              Fluttertoast.showToast(
+                                msg: e.toString(),
+                                gravity: ToastGravity.TOP,
+                              );
+                            }
                           }
-                        }
-                      },
-                      child: Text("สร้างหน่วยคะแนน"),
+                        },
+                        child: Text("สร้างหน่วยคะแนน"),
+                      ),
                     ),
                   )
                 ],

@@ -1,10 +1,10 @@
-import 'package:collecting_points/screen/usr_home.dart';
+import '/screen/usr_home.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:collecting_points/model/profile.dart';
-import 'package:collecting_points/screen/home.dart';
-import 'package:collecting_points/screen/register.dart';
+import '/model/profile.dart';
+import '/screen/home.dart';
+import '/screen/register.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   Profile profile = Profile();
 
-  String role = 'usr';
+  String role = 'og';
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,8 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            useridLabel(),
             useridTxtFmFld(),
             SizedBox(height: 20),
-            passwordLabel(),
             passwordTxtFmFld(),
             SizedBox(height: 50),
             loginBtn(),
@@ -53,15 +51,9 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Text useridLabel() {
-    return Text(
-      "เบอร์โทร",
-      style: TextStyle(fontSize: 20),
-    );
-  }
-
   TextFormField useridTxtFmFld() {
     return TextFormField(
+      decoration: new InputDecoration(labelText: "เบอร์โทร"),
       validator: RequiredValidator(errorText: "กรุณาป้อน เบอร์โทร"),
       keyboardType: TextInputType.number,
       onSaved: (String? tel) {
@@ -70,15 +62,9 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Text passwordLabel() {
-    return Text(
-      "รหัสผ่าน",
-      style: TextStyle(fontSize: 20),
-    );
-  }
-
   TextFormField passwordTxtFmFld() {
     return TextFormField(
+      decoration: InputDecoration(labelText: "รหัสผ่าน"),
       validator: RequiredValidator(errorText: "กรุณาป้อน รหัสผ่าน"),
       obscureText: true,
       onSaved: (String? password) {

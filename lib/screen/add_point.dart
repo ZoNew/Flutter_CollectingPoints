@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:collecting_points/model/user_collect.dart';
-import 'package:collecting_points/widget/point_list_view.dart';
 
 class AddPointScreen extends StatefulWidget {
   const AddPointScreen({Key? key}) : super(key: key);
@@ -40,7 +39,7 @@ class _AddPointScreenState extends State<AddPointScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
+    // ThemeData theme = Theme.of(context);
     double _fontSize = 18.0;
     return Scaffold(
       appBar: AppBar(
@@ -160,36 +159,38 @@ class _AddPointScreenState extends State<AddPointScreen> {
                 SizedBox(
                   height: 50,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        try {
-                          Fluttertoast.showToast(
-                            msg: "เพิ่มวิธีรับคะแนนเรียบร้อย",
-                            gravity: ToastGravity.TOP,
-                          );
+                Center(
+                  child: SizedBox(
+                    width: 180,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          try {
+                            Fluttertoast.showToast(
+                              msg: "เพิ่มวิธีรับคะแนนเรียบร้อย",
+                              gravity: ToastGravity.TOP,
+                            );
 
-                          print(
-                              "${collect.og}, ${collect.point}, ${collect.unit}");
-                          print(
-                              "$_times, ${collect.point}");
+                            print(
+                                "${collect.og}, ${collect.point}, ${collect.unit}");
+                            print(
+                                "$_times, ${collect.point}");
 
-                          Navigator.pop(context);
-                        } catch (e) {
-                          print(e.toString());
-                          Fluttertoast.showToast(
-                            msg: e.toString(),
-                            gravity: ToastGravity.TOP,
-                          );
+                            Navigator.pop(context);
+                          } catch (e) {
+                            print(e.toString());
+                            Fluttertoast.showToast(
+                              msg: e.toString(),
+                              gravity: ToastGravity.TOP,
+                            );
+                          }
                         }
-                      }
-                    },
-                    child: Text("เพิ่มแต้ม",
-                        style: TextStyle(fontSize: _fontSize)),
+                      },
+                      child: Text("เพิ่มแต้ม",
+                          style: TextStyle(fontSize: _fontSize)),
+                    ),
                   ),
                 ),
               ],
