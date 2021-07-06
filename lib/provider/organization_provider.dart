@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 
 class UserProvider with ChangeNotifier {
   List<Organization> _organizations = [
-    Organization(name: "ร้าน dmi",ownerId: ,memberId: [])
+    // Organization(name: "ร้าน dmi",ownerId: ,memberId: [])
   ];
 
   // ดึงข้อมูล

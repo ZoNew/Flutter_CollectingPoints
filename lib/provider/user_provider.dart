@@ -2,7 +2,7 @@ import 'package:collecting_points/model/user.dart';
 import 'package:flutter/foundation.dart';
 
 class UserProvider with ChangeNotifier {
-  List<User> _users = [
+  List<User> users = [
     User(
       name: "New01",
       password: "123456",
@@ -30,13 +30,13 @@ class UserProvider with ChangeNotifier {
   ];
 
   // ดึงข้อมูล
-  List<User> getTransaction(){
-    return _users;
+  List<User> getUser(){
+    return users;
   }
 
   // เพิ่มข้อมูล
   void addUser(User user){
-    _users.add(user);
+    users.add(user);
   }
 
 }
