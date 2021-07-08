@@ -7,5 +7,7 @@ class User {
   String? tel;
   String? role;
   List<UserCollect>? usrCollect;
-  User({this.name,this.password,this.email,this.tel,this.role,this.usrCollect});
+  User({this.name,this.password,this.email,this.tel,this.role,this.usrCollect}){
+    role = "usr";
+  }
 }

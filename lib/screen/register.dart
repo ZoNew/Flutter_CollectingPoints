@@ -1,7 +1,9 @@
+import 'package:collecting_points/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:collecting_points/model/user.dart';
+import 'package:provider/provider.dart';
 
 import 'home.dart';
 
@@ -118,6 +120,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 Fluttertoast.showToast(msg: "ลงทะเบียนเรีนยร้อย");
                                 print(
                                     "${user.name}, ${user.password}, ${user.email}, ${user.tel}, ${user.role}, ${user.usrCollect}");
+
+                                // เตรียมข้อมูล
+                                User statement = user;
+
+                                // เรียก Provider
+                                UserProvider provider = Provider.of<UserProvider>(context,listen: false);
+                                provider.addUser(statement);
+
+
                                 Navigator.pop(context);
                                 Navigator.pushReplacement(
                                   context,

@@ -1,7 +1,7 @@
 import 'package:collecting_points/model/organization.dart';
 import 'package:flutter/foundation.dart';
 
-class UserProvider with ChangeNotifier {
+class OrganizationProvider with ChangeNotifier {
   List<Organization> _organizations = [
     // Organization(name: "ร้าน dmi",ownerId: ,memberId: [])
   ];

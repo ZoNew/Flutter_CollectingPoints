@@ -1,3 +1,4 @@
+import 'package:collecting_points/model/user.dart';
 import 'package:collecting_points/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:collecting_points/screen/detail_member.dart';
@@ -25,25 +26,35 @@ class _MembersScreenState extends State<MembersScreen> {
           )
         ],
       ),
-      // body: buildListView(),
       body: Consumer(builder: (context, UserProvider provider, Widget? child){
-        return ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return buildCard(index, context);
-          },
-        );
+        int countData = provider.users.length;
+        if (countData <= 0) {
+          return Center(
+            child: Text(
+              "ไม่มีข้อมูล",
+              style: TextStyle(fontSize: 20),
+            ),
+          );
+        }else{
+          return ListView.builder(
+            itemCount: provider.users.length,
+            itemBuilder: (context, index) {
+              User data = provider.users[index];
+              return buildCard(index, context,data);
+            },
+          );
+        }
       })
     );
   }
 
-  Card buildCard(int index, BuildContext context) {
+  Card buildCard(int index, BuildContext context,User user) {
     return Card(
       elevation: 5,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
       child: ListTile(
-        title: Text("0801111222 #$index"),
-        subtitle: Text("นิติ บอย "),
+        title: Text(user.tel.toString()),
+        subtitle: Text(user.name.toString()),
         onTap: () {
           goToDetailMemberScreen(context);
         },

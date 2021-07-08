@@ -1,5 +1,6 @@
-import 'package:collecting_points/provider/organization_provider.dart';
+import 'package:collecting_points/provider/user_provider.dart';
 import 'package:collecting_points/screen/home.dart';
+import 'package:collecting_points/screen/member.dart';
 import 'package:flutter/material.dart';
 import 'package:collecting_points/screen/login.dart';
 import 'package:provider/provider.dart';
@@ -38,6 +39,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<UserProvider>(context,listen: false).initData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return HomeScreen();
