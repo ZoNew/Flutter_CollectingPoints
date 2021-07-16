@@ -17,38 +17,37 @@ class _MembersScreenState extends State<MembersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("สมาชิก"),
-        actions: [
-          IconButton(
-            onPressed: _pushSaved,
-            icon: Icon(Icons.person_add),
-          )
-        ],
-      ),
-      body: Consumer(builder: (context, UserProvider provider, Widget? child){
+        appBar: AppBar(
+          title: Text("สมาชิก"),
+          actions: [
+            IconButton(onPressed: _pushSaved, icon: Icon(Icons.person_add))
+          ],
+        ),
+        body: body());
+  }
+
+  Widget body() {
+    return Consumer(
+      builder: (context, UserProvider provider, Widget? child) {
         int countData = provider.users.length;
         if (countData <= 0) {
           return Center(
-            child: Text(
-              "ไม่มีข้อมูล",
-              style: TextStyle(fontSize: 20),
-            ),
+            child: Text("ไม่มีข้อมูล", style: TextStyle(fontSize: 20)),
           );
-        }else{
+        } else {
           return ListView.builder(
             itemCount: provider.users.length,
             itemBuilder: (context, index) {
               User data = provider.users[index];
-              return buildCard(index, context,data);
+              return buildCard(index, context, data);
             },
           );
         }
-      })
+      },
     );
   }
 
-  Card buildCard(int index, BuildContext context,User user) {
+  Card buildCard(int index, BuildContext context, User user) {
     return Card(
       elevation: 5,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
