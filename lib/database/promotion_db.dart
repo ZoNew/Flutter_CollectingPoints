@@ -1,18 +1,20 @@
 import 'dart:io';
 
-import 'package:collecting_points/model/user.dart';
+import 'package:collecting_points/model/collect.dart';
+import 'package:collecting_points/model/organization.dart';
+import 'package:collecting_points/model/promotion.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
 
-class UserDB {
+class PromotionDB {
   // บริการเกี่ยวกันฐานข้อมูล
 
   String? dbName;
 
   // ถูกสร้างแล้ว ? เปิด : สร้าง
-  UserDB({this.dbName});
+  PromotionDB({this.dbName});
 
   Future<Database> openDatabase() async {
     // หาตำแหน่งที่เก็บข้อมูล
@@ -27,21 +29,20 @@ class UserDB {
   }
 
   // บันทึกข้อมูล
-  Future<int> insertData(User statement) async {
+  Future<int> insertData(Promotion statement) async {
     // ฐานข้อมูล => Store
     // collecting.db => users
     var db = await this.openDatabase();
-    var store = intMapStoreFactory.store("users");
+    var store = intMapStoreFactory.store("promotions");
 
     //json
     var keyID = store.add(
       db,
       {
+        "ogId": statement.ogId,
         "name": statement.name,
-        "password": statement.password,
-        "email": statement.email,
-        "tel": statement.tel,
-        // "role":,
+        "targetPoint": statement.targetPoint,
+        "collectList": statement.collectList,
       },
     );
     db.close();
@@ -55,25 +56,25 @@ class UserDB {
 // dbLocation        = C:users/Nitikarn/transaction.db
 
   // ดึงข้อมูล
-  Future<List<User>> loadAllData() async {
+  Future<List<Promotion>> loadAllData() async {
     var db = await this.openDatabase();
-    var store = intMapStoreFactory.store("users");
+    var store = intMapStoreFactory.store("promotions");
     var snapshot = await store.find(db,
         finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
-    List<User> userList = <User>[];
+    List<Promotion> promotionList = <Promotion>[];
 
     // ดึงข้อมูลทีละ document
     for (var record in snapshot) {
-      userList.add(
-        User(
+      promotionList.add(
+        Promotion(
+          ogId: record["ogId"] as Organization,
           name: record["name"] as String,
-          password: record["password"] as String,
-          email: record["email"] as String,
-          tel: record["tel"] as String,
+          targetPoint: record["targetPoint"] as int,
+          collectList: record["collectLost"] as List<Collect>,
         ),
       );
     }
-    return userList;
+    return promotionList;
   }
 }
 // sortOrders

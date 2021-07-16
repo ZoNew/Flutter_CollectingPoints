@@ -6,9 +6,9 @@ import 'package:intl/intl.dart';
 class CollectBox extends StatelessWidget {
   String name;
   int rewardPoint;
-  String collectUnit;
+  String unitName;
 
-  CollectBox(this.name, this.rewardPoint, this.collectUnit);
+  CollectBox(this.name, this.rewardPoint, this.unitName);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class CollectBox extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  Text(collectUnit,textAlign: TextAlign.end),
+                  Text(unitName,textAlign: TextAlign.end),
 
                 ],
               ),

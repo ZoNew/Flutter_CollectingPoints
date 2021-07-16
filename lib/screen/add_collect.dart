@@ -98,7 +98,7 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
                               },
                               items: _unitList,
                               onSaved: (val) {
-                                collect.collectUnit = val;
+                                collect.unitName = val;
                               },
                             ),
                           ),
@@ -170,7 +170,7 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
                               );
 
                               print(
-                                  "${collect.name}, ${collect.rewardPoint}, ${collect.collectUnit}, ${collect.price}");
+                                  "${collect.name}, ${collect.rewardPoint}, ${collect.unitName}, ${collect.price}");
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(builder: (context) {

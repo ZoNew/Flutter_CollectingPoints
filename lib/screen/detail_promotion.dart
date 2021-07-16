@@ -73,7 +73,7 @@ class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
                     return CollectBox(
                         listCollectBox[index].name,
                         listCollectBox[index].rewardPoint,
-                        listCollectBox[index].collectUnit);
+                        listCollectBox[index].unitName);
                   },
                 ),
               ),
