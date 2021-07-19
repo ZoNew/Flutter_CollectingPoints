@@ -1,0 +1,32 @@
+add user
+
+login
+
+create OG
+- update users : role = og
+- add og
+add promotion
+- add promotion
+-------------------------
+- add collect
+-------------------------
+- add collect_unit 
+- add collect
+-------------------------
+
+add collect
+- add collect
+- update promotion
+
+add member
+- add user
+- update og
+-----------------------
+- update og
+
+add points
+- update user
+
+
+
+
