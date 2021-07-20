@@ -1,31 +1,35 @@
-add user
+CREATE user
 
 login
 
-create OG
-- update users : role = og
-- add og
-add promotion
-- add promotion
+CREATE OG
+- UPDATE users : role = og
+- CREATE og
+
+CREATE promotion
+- CREATE promotion
 -------------------------
-- add collect
+- CREATE collect
 -------------------------
-- add collect_unit 
-- add collect
+- CREATE collect_unit 
+- CREATE collect
 -------------------------
 
-add collect
-- add collect
-- update promotion
+CREATE collect
+- CREATE collect // CREATE colect_unit
+- UPDATE promotion
 
-add member
-- add user
-- update og
+CREATE member
+- CREATE user
+- UPDATE og
 -----------------------
-- update og
+- UPDATE og
 
-add points
-- update user
+CREATE points
+- UPDATE user
+
+reward
+- UPDATE user
 
 
 
