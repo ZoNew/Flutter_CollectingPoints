@@ -15,7 +15,7 @@ class _UsrCollectPointScreenState extends State<UsrCollectPointScreen> {
         title: Text("แต้มสะสม"),
       ),
       body: ListView.builder(
-        itemCount: 4,
+        itemCount: 3,
         itemBuilder: (context, index) {
           return buildCard(index, context);
         },
@@ -40,7 +40,7 @@ class _UsrCollectPointScreenState extends State<UsrCollectPointScreen> {
           Align(
             alignment: Alignment.topLeft,
             child: Text(
-              "[ชื่อร้าน]",
+              "เจ๊จอยชานมไข่มุก",
               style: TextStyle(fontSize: 20),
             ),
           ),

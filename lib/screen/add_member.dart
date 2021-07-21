@@ -6,15 +6,15 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:collecting_points/model/user.dart';
 import 'package:provider/provider.dart';
 
-
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+class AddMemberScreen extends StatefulWidget {
+  const AddMemberScreen({Key? key}) : super(key: key);
 
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  _AddMemberScreenState createState() => _AddMemberScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _AddMemberScreenState extends State<AddMemberScreen> {
+
   final formKey = GlobalKey<FormState>();
   User user = User();
   final TextEditingController _pass = TextEditingController();
@@ -148,7 +148,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             }
                           },
                           child:
-                              Text("ลงทะเบียน", style: TextStyle(fontSize: 20)),
+                          Text("ลงทะเบียน", style: TextStyle(fontSize: 20)),
                         ),
                       ),
                     ),
