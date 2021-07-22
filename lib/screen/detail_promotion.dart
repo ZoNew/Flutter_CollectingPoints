@@ -55,14 +55,15 @@ class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
                 "1,000 point",
                 style: TextStyle(fontSize: 25),
               ),
-              Text(
-                //promotion.targetPoint
-                "วีทีรับคะแนน",
-                style: TextStyle(fontSize: 15),
-              ),
               SizedBox(
                 height: 20,
               ),
+              Text(
+                //promotion.targetPoint
+                "วีธีรับคะแนน",
+                style: TextStyle(fontSize: 15),
+              ),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListView.builder(

@@ -62,7 +62,7 @@ class _AddPointScreenState extends State<AddPointScreen> {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "จำนวนชิ้น",
+                              "คะแนน",
                               style: TextStyle(fontSize: _fontSize),
                             ),
                           ),
@@ -90,7 +90,7 @@ class _AddPointScreenState extends State<AddPointScreen> {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "หน่วยคะแนน",
+                                  "หน่ว50",
                                   style: TextStyle(fontSize: _fontSize),
                                 ),
                               ),
@@ -188,7 +188,7 @@ class _AddPointScreenState extends State<AddPointScreen> {
                           }
                         }
                       },
-                      child: Text("เพิ่มแต้ม",
+                      child: Text("เพิ่มคะแนน",
                           style: TextStyle(fontSize: _fontSize)),
                     ),
                   ),

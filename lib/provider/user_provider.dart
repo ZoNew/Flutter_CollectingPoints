@@ -28,6 +28,19 @@ class UserProvider with ChangeNotifier {
 
   // เพิ่มข้อมูล
   void addUser(User statement) async{
+
+    //แปลง Obj to Json (1)
+    // json = exchangeRateToJson(statement)
+
+    //ส่งให้ api (2)
+    // json
+    // Url
+    // http.pose(Url)
+
+    //ดึงข้อมูลจาก api (3)
+    //var response = await http.get(url);
+    // _dataFromAPI = exchangeRateFromJson(response.body);
+
     var db = UserDB(dbName: "collecting.db");
 
     // บันทึกข้อมูล

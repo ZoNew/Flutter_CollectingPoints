@@ -6,6 +6,8 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:collecting_points/model/user.dart';
 import 'package:provider/provider.dart';
 
+import 'home.dart';
+
 class AddMemberScreen extends StatefulWidget {
   const AddMemberScreen({Key? key}) : super(key: key);
 
@@ -135,7 +137,7 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) {
-                                    return UsrHomeScreen();
+                                    return HomeScreen();
                                   }),
                                 );
                               } catch (e) {

@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
   Profile profile = Profile();
 
-  String role = 'usr';
+  String role = 'og';
 
   @override
   Widget build(BuildContext context) {

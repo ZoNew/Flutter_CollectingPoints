@@ -25,7 +25,7 @@ class _PromotionScreenState extends State<PromotionScreen> {
         ],
       ),
       body: ListView.builder(
-        itemCount: 4,
+        itemCount: 3,
         itemBuilder: (context, index) {
           return Card(
             elevation: 5,
@@ -33,7 +33,7 @@ class _PromotionScreenState extends State<PromotionScreen> {
             child: ListTile(
               contentPadding:
                   EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-              title: Text("10 Free $index"),
+              title: Text("10 Free ${index+1}"),
               onTap: () {
                 Navigator.push(
                   context,

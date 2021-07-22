@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:collecting_points/screen/detail_member.dart';
 import 'package:provider/provider.dart';
 
+import 'add_member.dart';
 import 'register.dart';
 
 class MembersScreen extends StatefulWidget {
@@ -74,7 +75,7 @@ class _MembersScreenState extends State<MembersScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) {
-        return RegisterScreen();
+        return AddMemberScreen();
       }),
     );
   }
