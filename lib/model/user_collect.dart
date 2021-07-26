@@ -8,3 +8,4 @@ class UserCollect{
 
   UserCollect({this.og,this.unit,this.point});
 }
+
