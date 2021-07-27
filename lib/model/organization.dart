@@ -5,7 +5,7 @@ class Organization {
   User? ownerId;
   List<User>? memberId;
 
-  Organization({this.name,this.ownerId,this.memberId}){
+  Organization({this.name, this.ownerId, this.memberId}) {
     memberId = [];
-}
+  }
 }
