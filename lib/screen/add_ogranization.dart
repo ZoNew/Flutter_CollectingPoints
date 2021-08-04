@@ -1,4 +1,5 @@
 import 'package:collecting_points/model/organization.dart';
+import 'package:collecting_points/model/user.dart';
 import 'package:collecting_points/provider/organization_provider.dart';
 import 'package:collecting_points/screen/home.dart';
 import 'package:collecting_points/screen/login.dart';
@@ -6,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
-
 
 class AddOrganizationScreen extends StatefulWidget {
   const AddOrganizationScreen({Key? key}) : super(key: key);
@@ -17,6 +17,13 @@ class AddOrganizationScreen extends StatefulWidget {
 
 class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
   final formKey = GlobalKey<FormState>();
+  User user = User(
+      name: "sadf",
+      tel: "ZXC",
+      email: "A@A.X",
+      password: "123456",
+      usrCollect: [],
+      role: "og");
   Organization og = Organization();
 
   @override
@@ -31,8 +38,7 @@ class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
           child: Form(
             key: formKey,
             child: SingleChildScrollView(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextFormField(
@@ -57,9 +63,9 @@ class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
                               try {
-                                Fluttertoast.showToast(msg: "สร้างองค์กรเรียบร้อย");
-                                print(
-                                    "${og.ogName}");
+                                Fluttertoast.showToast(
+                                    msg: "สร้างองค์กรเรียบร้อย");
+                                print("${og.name}");
 
                                 // เตรียมข้อมูล
                                 // Organization statement = og;
@@ -67,7 +73,6 @@ class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
                                 // เรียก Provider
                                 /*OrganizationProvider provider = Provider.of<OrganizationProvider>(context,listen: false);
                                 provider.addOrganization(statement);*/
-
 
                                 Navigator.pop(context);
                                 Navigator.pushReplacement(
@@ -86,7 +91,7 @@ class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
                             }
                           },
                           child:
-                          Text("ลงทะเบียน", style: TextStyle(fontSize: 20)),
+                              Text("ลงทะเบียน", style: TextStyle(fontSize: 20)),
                         ),
                       ),
                     ),
