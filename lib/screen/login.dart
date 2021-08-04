@@ -58,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
       keyboardType: TextInputType.number,
       onSaved: (String? tel) {
         profile.tel = tel;
+        print(tel);
       },
     );
   }

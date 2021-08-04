@@ -12,15 +12,15 @@ class DetailPromotionScreen extends StatefulWidget {
 
 class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
   List<CollectBox> listCollectBox = [
-    new CollectBox("ขวดพลาสติก", 3, "point"),
-    new CollectBox("ขวดแก้ว", 2, "point"),
-    new CollectBox("กระป๋อง", 1, "point"),
-    new CollectBox("ถุงก๊อปแก๊บ", 5, "point"),
+    new CollectBox("เก็บขวดพลาสติก", 5, "point"),
+    new CollectBox("เก็บขวดแก้ว", 3, "point"),
+    new CollectBox("เก็บกระป๋อง", 1, "point"),
+    /*new CollectBox("ถุงก๊อปแก๊บ", 5, "point"),
     new CollectBox("ขวดแก้ว", 2, "point"),
     new CollectBox("กระป๋อง", 4, "point"),
     new CollectBox("ขวดพลาสติก", 3, "point"),
     new CollectBox("ขวดแก้ว", 2, "point"),
-    new CollectBox("กระป๋อง", 1, "point"),
+    new CollectBox("กระป๋อง", 1, "point"),*/
   ];
 
   @override
@@ -63,7 +63,6 @@ class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
                 "วีธีรับคะแนน",
                 style: TextStyle(fontSize: 15),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListView.builder(
@@ -72,9 +71,10 @@ class _DetailPromotionScreenState extends State<DetailPromotionScreen> {
                   itemCount: listCollectBox.length,
                   itemBuilder: (context, index) {
                     return CollectBox(
-                        listCollectBox[index].name,
-                        listCollectBox[index].rewardPoint,
-                        listCollectBox[index].unitName);
+                      listCollectBox[index].name,
+                      listCollectBox[index].rewardPoint,
+                      listCollectBox[index].unitName,
+                    );
                   },
                 ),
               ),

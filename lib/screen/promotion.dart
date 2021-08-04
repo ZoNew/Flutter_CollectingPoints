@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:collecting_points/screen/add_promotion.dart';
 import 'package:collecting_points/screen/detail_promotion.dart';
 
-import 'login.dart';
 
 class PromotionScreen extends StatefulWidget {
   const PromotionScreen({Key? key}) : super(key: key);

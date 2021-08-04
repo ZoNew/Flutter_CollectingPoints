@@ -29,7 +29,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 width: 150,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
                         return AddOrganizationScreen();

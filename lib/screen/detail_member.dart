@@ -16,12 +16,12 @@ class DetailMemberScreen extends StatefulWidget {
 class _DetailMemberScreenState extends State<DetailMemberScreen> {
   List<PointListView> listCollectBox = [
     // new CollectBox(name: "ขวดพลาสติก",rewardPoint:  3,collectUnit: "point"),
-    new PointListView(10, "point"),
-    new PointListView(1000, "ความดี"),
-    new PointListView(4, "stamp"),
-    new PointListView(1, "แก้วหมี"),
-    new PointListView(8, "มูมู่"),
-    new PointListView(4, "กล้าหาญ"),
+    PointListView(50, "point"),
+/*    PointListView(1000, "ความดี"),
+    PointListView(4, "stamp"),
+    PointListView(1, "แก้วหมี"),
+    PointListView(8, "มูมู่"),
+    PointListView(4, "กล้าหาญ"),*/
   ];
 
   @override
@@ -29,12 +29,12 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("รายละเอียด"),
-        actions: [
+        /*actions: [
           IconButton(
             onPressed: _pushSaved,
             icon: Icon(Icons.control_point),
           )
-        ],
+        ],*/
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -44,7 +44,7 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
             children: [
               Text(
                 //promotion.name
-                "0801210880",
+                "0801234567",
                 style: TextStyle(fontSize: 30),
               ),
               SizedBox(
@@ -52,7 +52,7 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
               ),
               Text(
                 //promotion.targetPoint
-                "สมเกียรติ วังเนินผา",
+                "สมชาย",
                 style: TextStyle(fontSize: 25),
               ),
               SizedBox(
@@ -67,10 +67,10 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
                       width: 150,
                       child: ElevatedButton(
                         onPressed: () {
-                          Fluttertoast.showToast(
-                            msg: "<ทดสอบเพิ่มคะแนน>",
+                          /*Fluttertoast.showToast(
+                            msg: "ทดสอบเพิ่มคะแนน",
                             gravity: ToastGravity.BOTTOM,
-                          );
+                          );*/
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) {
@@ -93,7 +93,7 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
                       child: ElevatedButton(
                         onPressed: () {
                           Fluttertoast.showToast(
-                            msg: "<ทดสอบแลกรางวัล>",
+                            msg: "ทดสอบแลกรางวัล",
                             gravity: ToastGravity.BOTTOM,
                           );
                           Navigator.push(
@@ -121,13 +121,13 @@ class _DetailMemberScreenState extends State<DetailMemberScreen> {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        Expanded(
+                        /*Expanded(
                           child: Text(
                             "หน่วย",
                             style: TextStyle(fontSize: 20),
                             textAlign: TextAlign.center,
                           ),
-                        ),
+                        ),*/
                       ],
                     ),
                     SizedBox(

@@ -1,3 +1,5 @@
+import 'package:collecting_points/screen/member_test.dart';
+import 'package:collecting_points/screen/promotion_test.dart';
 import 'package:flutter/material.dart';
 import 'package:collecting_points/screen/member.dart';
 import 'package:collecting_points/screen/profile.dart';
@@ -28,7 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
 
-
   int _currentIndex = 1; // default page
 
   @override
@@ -40,8 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
         .of(context)
         .textTheme;
     final List<Widget> _children = [
-      PromotionScreen(),
-      MembersScreen(),
+      PromotionTestScreen(),
+      MembersTestScreen(),
       ProfileScreen(),
     ];
 

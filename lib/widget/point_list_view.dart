@@ -5,9 +5,9 @@ class PointListView extends StatelessWidget {
   int point;
   String unit;
 
-  PointListView(this.point, this.unit){
-    point = 0;
-    unit = "none";
+  PointListView(this.point, this.unit) {
+    /*point = 0;
+    unit = "none";*/
   }
 
   @override
@@ -15,6 +15,43 @@ class PointListView extends StatelessWidget {
     return Container(
       height: 80,
       child: Row(
+        children: [
+          Expanded(
+            child: Text(
+                ""
+            ),
+          ),
+          Expanded(
+            child: Text(
+              ""
+            ),
+          ),
+          Expanded(
+            child: Text(
+              point.toString(),
+              textAlign: TextAlign.start,
+              style: TextStyle(fontSize: 30),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              unit.toString(),
+              textAlign: TextAlign.start,
+              style: TextStyle(fontSize: 30),
+            ),
+          ),
+          Expanded(
+            child: Text(
+                ""
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/*
         children: [
           Expanded(
             child: Text(
@@ -29,7 +66,4 @@ class PointListView extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
+      ),*/

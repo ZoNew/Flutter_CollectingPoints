@@ -38,7 +38,7 @@ class OrganizationDB {
     var keyID = store.add(
       db,
       {
-        "name": statement.name,
+        "name": statement.ogName,
         "owner": statement.ownerId,
         "memberList": statement.memberId,
       },
@@ -65,9 +65,9 @@ class OrganizationDB {
     for (var record in snapshot) {
       organizationList.add(
         Organization(
-          name: record["name"] as String,
-          ownerId: record["owner"] as User,
-          memberId: record["memberList"] as List<User>,
+          ogName: record["name"] as String,
+          ownerId: record["owner"] as String,
+          memberId: record["memberList"] as   List<MemberId>,
         ),
       );
     }

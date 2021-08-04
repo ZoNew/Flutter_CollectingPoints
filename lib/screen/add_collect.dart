@@ -20,10 +20,10 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
   final textFormFieldPrice = TextEditingController();
 
   List<DropdownMenuItem<String>> _unitList = [
-    "stamp",
     "point",
+   /* "stamp",
     "แต้ม",
-    "ความดี",
+    "ความดี",*/
   ].map<DropdownMenuItem<String>>((String value) {
     return DropdownMenuItem<String>(
       value: value,
@@ -168,7 +168,6 @@ class _AddCollectScreenState extends State<AddCollectScreen> {
                                 msg: "เพิ่มวิธีรับคะแนนเรียบร้อย",
                                 gravity: ToastGravity.TOP,
                               );
-
                               print(
                                   "${collect.name}, ${collect.rewardPoint}, ${collect.unitName}, ${collect.price}");
                               Navigator.pushReplacement(

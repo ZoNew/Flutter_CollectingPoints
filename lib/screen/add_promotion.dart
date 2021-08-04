@@ -37,7 +37,7 @@ class _AddPromotionScreenState extends State<AddPromotionScreen> {
                       validator: RequiredValidator(
                           errorText: "กรุณาป้อน ชื่อ"),
                       onSaved: (String? name) {
-                        promotion.name = name;
+                        promotion.proName = name;
                       },
                     ),
                     SizedBox(
@@ -66,7 +66,7 @@ class _AddPromotionScreenState extends State<AddPromotionScreen> {
                               try {
                                 Fluttertoast.showToast(msg: "สร้างโปรโมชันเรียบร้อย");
                                 print(
-                                    "${promotion.name}, ${promotion.targetPoint}");
+                                    "${promotion.proName}, ${promotion.targetPoint}");
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) {

@@ -15,7 +15,7 @@ class _UsrCollectPointScreenState extends State<UsrCollectPointScreen> {
         title: Text("แต้มสะสม"),
       ),
       body: ListView.builder(
-        itemCount: 3,
+        itemCount: 1,
         itemBuilder: (context, index) {
           return buildCard(index, context);
         },
@@ -50,7 +50,7 @@ class _UsrCollectPointScreenState extends State<UsrCollectPointScreen> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: Text(
-                  "1,000",
+                  "50",
                   style: TextStyle(fontSize: 30),
                 ),
               ),

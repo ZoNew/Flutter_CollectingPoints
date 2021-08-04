@@ -17,10 +17,10 @@ class _AddPointScreenState extends State<AddPointScreen> {
   bool isEnable = false;
 
   List<DropdownMenuItem<String>> _unitList = [
-    "stamp",
     "point",
+    /*"stamp",
     "แต้ม",
-    "ความดี",
+    "ความดี",*/
   ].map<DropdownMenuItem<String>>((String value) {
     return DropdownMenuItem<String>(
       value: value,
@@ -90,7 +90,7 @@ class _AddPointScreenState extends State<AddPointScreen> {
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  "หน่ว50",
+                                  "หน่วย",
                                   style: TextStyle(fontSize: _fontSize),
                                 ),
                               ),
@@ -169,7 +169,7 @@ class _AddPointScreenState extends State<AddPointScreen> {
                           formKey.currentState!.save();
                           try {
                             Fluttertoast.showToast(
-                              msg: "เพิ่มวิธีรับคะแนนเรียบร้อย",
+                              msg: "เพิ่มคะแนนเรียบร้อย",
                               gravity: ToastGravity.TOP,
                             );
 

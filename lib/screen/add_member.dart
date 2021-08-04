@@ -129,8 +129,8 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                                 User statement = user;
 
                                 // เรียก Provider
-                                UserProvider provider = Provider.of<UserProvider>(context,listen: false);
-                                provider.addUser(statement);
+                                /*UserProvider provider = Provider.of<UserProvider>(context,listen: false);
+                                provider.addUser(statement);*///แก้ทีหลัง
 
 
                                 Navigator.pop(context);

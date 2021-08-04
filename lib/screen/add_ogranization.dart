@@ -1,6 +1,7 @@
 import 'package:collecting_points/model/organization.dart';
 import 'package:collecting_points/provider/organization_provider.dart';
 import 'package:collecting_points/screen/home.dart';
+import 'package:collecting_points/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -41,7 +42,7 @@ class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
                         RequiredValidator(errorText: "กรุณาป้อน ชื่อองค์กร"),
                       ]),
                       onSaved: (String? name) {
-                        og.name = name;
+                        og.ogName = name;
                       },
                     ),
                     SizedBox(
@@ -58,14 +59,14 @@ class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
                               try {
                                 Fluttertoast.showToast(msg: "สร้างองค์กรเรียบร้อย");
                                 print(
-                                    "${og.name}");
+                                    "${og.ogName}");
 
                                 // เตรียมข้อมูล
-                                Organization statement = og;
+                                // Organization statement = og;
 
                                 // เรียก Provider
-                                OrganizationProvider provider = Provider.of<OrganizationProvider>(context,listen: false);
-                                provider.addOrganization(statement);
+                                /*OrganizationProvider provider = Provider.of<OrganizationProvider>(context,listen: false);
+                                provider.addOrganization(statement);*/
 
 
                                 Navigator.pop(context);

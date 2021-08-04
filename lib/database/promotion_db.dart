@@ -40,9 +40,9 @@ class PromotionDB {
       db,
       {
         "ogId": statement.ogId,
-        "name": statement.name,
+        "name": statement.proName,
         "targetPoint": statement.targetPoint,
-        "collectList": statement.collectList,
+        "collectList": statement.collectId,
       },
     );
     db.close();
@@ -67,10 +67,10 @@ class PromotionDB {
     for (var record in snapshot) {
       promotionList.add(
         Promotion(
-          ogId: record["ogId"] as Organization,
-          name: record["name"] as String,
+          ogId: record["ogId"] as String,
+          proName: record["name"] as String,
           targetPoint: record["targetPoint"] as int,
-          collectList: record["collectLost"] as List<Collect>,
+          collectId: record["collectLost"] as List<String>?,
         ),
       );
     }

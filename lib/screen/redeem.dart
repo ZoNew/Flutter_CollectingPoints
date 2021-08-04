@@ -12,12 +12,12 @@ class _RedeemScreenState extends State<RedeemScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Redeem"),
+        title: Text("รางวัล"),
       ),
       body: SafeArea(
         child: Align(
           alignment: Alignment.center,
-          child: Text("Redeem"),
+          child: Text("แลกรางวัล"),
         ),
       ),
     );
