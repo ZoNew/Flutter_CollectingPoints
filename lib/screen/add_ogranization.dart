@@ -1,7 +1,7 @@
 import 'package:collecting_points/model/organization.dart';
 import 'package:collecting_points/model/user.dart';
 import 'package:collecting_points/provider/organization_provider.dart';
-import 'package:collecting_points/screen/home.dart';
+import 'package:collecting_points/screen/homeOg.dart';
 import 'package:collecting_points/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -65,7 +65,7 @@ class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
                               try {
                                 Fluttertoast.showToast(
                                     msg: "สร้างองค์กรเรียบร้อย");
-                                print("${og.name}");
+                                print("${og.ownerId}");
 
                                 // เตรียมข้อมูล
                                 // Organization statement = og;
@@ -78,7 +78,7 @@ class _AddOrganizationScreenState extends State<AddOrganizationScreen> {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) {
-                                    return HomeScreen();
+                                    return HomeScreenOg();
                                   }),
                                 );
                               } catch (e) {

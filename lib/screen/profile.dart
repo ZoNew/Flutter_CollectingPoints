@@ -24,50 +24,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                height: 50,
-                width: 150,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) {
-                        return AddOrganizationScreen();
-                      }),
-                    );
-                  },
-                  child: Text(
-                    "สร้างร้านค้า",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 50,
-                width: 150,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Fluttertoast.showToast(
-                      msg: "ออกจากระบบเรียบร้อยแล้ว",
-                      gravity: ToastGravity.BOTTOM,
-                    );
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) {
-                        return LoginScreen();
-                      }),
-                    );
-                  },
-                  child: Text(
-                    "ออกจากระบบ",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-              ),
+              SizedBox(height: 50, width: 150, child: addOgBtn(context)),
+              SizedBox(height: 50, width: 150, child: logoutBtn(context)),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  ElevatedButton logoutBtn(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Fluttertoast.showToast(
+          msg: "ออกจากระบบเรียบร้อยแล้ว",
+          gravity: ToastGravity.BOTTOM,
+        );
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) {
+          return LoginScreen();
+        }));
+      },
+      child: Text("ออกจากระบบ", style: TextStyle(fontSize: 18)),
+    );
+  }
+
+  ElevatedButton addOgBtn(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return AddOrganizationScreen();
+        }));
+      },
+      child: Text("สร้างร้านค้า", style: TextStyle(fontSize: 18)),
     );
   }
 }
