@@ -3,47 +3,32 @@ import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'usr_collect_point.dart';
 
-class UsrHomeScreen extends StatefulWidget {
-  const UsrHomeScreen({Key? key}) : super(key: key);
+class HomeScreenUsr extends StatefulWidget {
+  const HomeScreenUsr({Key? key}) : super(key: key);
 
   @override
-  _UsrHomeScreenState createState() => _UsrHomeScreenState();
+  _HomeScreenUsrState createState() => _HomeScreenUsrState();
 }
 
-class _UsrHomeScreenState extends State<UsrHomeScreen> {
-
-  List<BottomNavigationBarItem> _menuBar
-  = <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-      label: 'แต้มสะสม',
-      icon: Icon(Icons.article),
-    ),
-    BottomNavigationBarItem(
-      label: 'โปรไฟล์',
-      icon: Icon(Icons.account_circle),
-    ),
+class _HomeScreenUsrState extends State<HomeScreenUsr> {
+  List<BottomNavigationBarItem> _menuBar = <BottomNavigationBarItem>[
+    BottomNavigationBarItem(label: 'แต้มสะสม', icon: Icon(Icons.article)),
+    BottomNavigationBarItem(label: 'โปรไฟล์', icon: Icon(Icons.account_circle)),
   ];
-
 
   int _currentIndex = 0; // default page
 
   @override
   Widget build(BuildContext context) {
-
-    final colorScheme = Theme
-        .of(context)
-        .colorScheme;
-    final textTheme = Theme
-        .of(context)
-        .textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     final List<Widget> _children = [
       UsrCollectPointScreen(),
       ProfileScreen(),
     ];
 
     return Scaffold(
-      body: _children[_currentIndex]
-      ,
+      body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
@@ -56,8 +41,7 @@ class _UsrHomeScreenState extends State<UsrHomeScreen> {
             // Respond to item press.
             setState(() => _currentIndex = value);
           },
-          items: _menuBar
-      ),
+          items: _menuBar),
     );
   }
 }

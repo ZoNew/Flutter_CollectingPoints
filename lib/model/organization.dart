@@ -20,13 +20,13 @@ class Organization {
   String? id;
   String? ogName;
   String? ownerId;
-  List<MemberId>? memberId;
+  List<Member>? memberId;
 
   factory Organization.fromJson(Map<String, dynamic> json) => Organization(
     id: json["_id"] == null ? null : json["_id"],
     ogName: json["og_name"] == null ? null : json["og_name"],
     ownerId: json["owner_ID"] == null ? null : json["owner_ID"],
-    memberId: json["member_ID"] == null ? null : List<MemberId>.from(json["member_ID"].map((x) => MemberId.fromJson(x))),
+    memberId: json["member_ID"] == null ? null : List<Member>.from(json["member_ID"].map((x) => Member.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -37,8 +37,8 @@ class Organization {
   };
 }
 
-class MemberId {
-  MemberId({
+class Member {
+  Member({
     this.tel,
     this.usrName,
     this.point,
@@ -48,7 +48,7 @@ class MemberId {
   String? usrName;
   int? point;
 
-  factory MemberId.fromJson(Map<String, dynamic> json) => MemberId(
+  factory Member.fromJson(Map<String, dynamic> json) => Member(
     tel: json["tel"] == null ? null : json["tel"],
     usrName: json["usr_name"] == null ? null : json["usr_name"],
     point: json["point"] == null ? null : json["point"],

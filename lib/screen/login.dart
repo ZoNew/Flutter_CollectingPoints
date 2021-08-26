@@ -1,9 +1,9 @@
-import '/screen/usr_home.dart';
+import '/screen/homeUsr.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import '/model/profile.dart';
-import '/screen/home.dart';
+import '/screen/homeOg.dart';
 import '/screen/register.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             useridTxtFmFld(),
             SizedBox(height: 20),
-            passwordTxtFmFld(),
+            passTxtFmFld(),
             SizedBox(height: 50),
             loginBtn(),
             SizedBox(height: 20),
@@ -54,22 +54,21 @@ class _LoginScreenState extends State<LoginScreen> {
   TextFormField useridTxtFmFld() {
     return TextFormField(
       decoration: new InputDecoration(labelText: "เบอร์โทร"),
-      validator: RequiredValidator(errorText: "กรุณาป้อน เบอร์โทร"),
+      validator: RequiredValidator(errorText: "กรุณาป้อนเบอร์โทร"),
       keyboardType: TextInputType.number,
       onSaved: (String? tel) {
         profile.tel = tel;
-        print(tel);
       },
     );
   }
 
-  TextFormField passwordTxtFmFld() {
+  TextFormField passTxtFmFld() {
     return TextFormField(
       decoration: InputDecoration(labelText: "รหัสผ่าน"),
-      validator: RequiredValidator(errorText: "กรุณาป้อน รหัสผ่าน"),
+      validator: RequiredValidator(errorText: "กรุณาป้อนรหัสผ่าน"),
       obscureText: true,
-      onSaved: (String? password) {
-        profile.password = password;
+      onSaved: (String? pass) {
+        profile.password = pass;
       },
     );
   }
@@ -87,9 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Center registerBtn() {
     return Center(
       child: TextButton(
-        onPressed: () {
-          register();
-        },
+        onPressed: () => register(),
         child: Text("ลงทะเบียน", style: TextStyle(fontSize: 20)),
       ),
     );
@@ -101,12 +98,10 @@ class _LoginScreenState extends State<LoginScreen> {
       try {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) {
-            if (role == 'usr')
-              return UsrHomeScreen();
-            else
-              return HomeScreen();
-          }),
+          MaterialPageRoute(
+            builder: (context) =>
+                role == 'usr' ? HomeScreenUsr() : HomeScreenOg(),
+          ),
         );
       } catch (e) {
         print(e.toString());
@@ -121,9 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void register() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) {
-        return RegisterScreen();
-      }),
+      MaterialPageRoute(builder: (context) => RegisterScreen()),
     );
   }
 }

@@ -11,15 +11,12 @@ class _UsrCollectPointScreenState extends State<UsrCollectPointScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("แต้มสะสม"),
-      ),
+      appBar: AppBar(title: Text("แต้มสะสม")),
       body: ListView.builder(
-        itemCount: 1,
-        itemBuilder: (context, index) {
-          return buildCard(index, context);
-        },
-      ),
+          itemCount: 1,
+          itemBuilder: (context, index) {
+            return buildCard(index, context);
+          }),
     );
   }
 
@@ -36,31 +33,21 @@ class _UsrCollectPointScreenState extends State<UsrCollectPointScreen> {
 
   Column collectPointsView() {
     return Column(
-        children: [
-          Align(
+      children: [
+        Align(
             alignment: Alignment.topLeft,
-            child: Text(
-              "เจ๊จอยชานมไข่มุก",
-              style: TextStyle(fontSize: 20),
+            child: Text("เจ๊จอยชานมไข่มุก", style: TextStyle(fontSize: 20))),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: Text("50", style: TextStyle(fontSize: 30)),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: Text(
-                  "50",
-                  style: TextStyle(fontSize: 30),
-                ),
-              ),
-              Text(
-                "point",
-                style: TextStyle(fontSize: 18),
-              ),
-            ],
-          ),
-        ],
-      );
+            Text("point", style: TextStyle(fontSize: 18)),
+          ],
+        ),
+      ],
+    );
   }
 }

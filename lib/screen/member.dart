@@ -1,11 +1,10 @@
-import 'package:collecting_points/model/user.dart';
-import 'package:collecting_points/provider/user_provider.dart';
+import 'package:collecting_points/model/organization.dart';
 import 'package:flutter/material.dart';
 import 'package:collecting_points/screen/detail_member.dart';
-import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 import 'add_member.dart';
-import 'register.dart';
+
 
 class MembersScreen extends StatefulWidget {
   const MembersScreen({Key? key}) : super(key: key);
@@ -15,46 +14,64 @@ class MembersScreen extends StatefulWidget {
 }
 
 class _MembersScreenState extends State<MembersScreen> {
+  late List<Organization> _dataFromAPI;
+
+  @override
+  void initState() {
+    super.initState();
+    getOrganization();
+  }
+
+  Future<List<Organization>> getOrganization() async {
+    var url = Uri.parse("http://192.168.1.2:3000/organizations");
+    var response = await http.get(url);
+    _dataFromAPI = organizationFromJson(response.body);
+    return _dataFromAPI;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("สมาชิก"),
-          actions: [
-            IconButton(onPressed: _pushSaved, icon: Icon(Icons.person_add))
-          ],
-        ),
-        body: body());
+      appBar: AppBar(
+        title: Text("สมาชิก"),
+        actions: [
+          IconButton(
+            onPressed: _pushSaved,
+            icon: Icon(Icons.person_add),
+          )
+        ],
+      ),
+      body: body(),
+    );
   }
 
   Widget body() {
-    return Consumer(
-      builder: (context, UserProvider provider, Widget? child) {
-        int countData = provider.users.length;
-        if (countData <= 0) {
-          return Center(
-            child: Text("ไม่มีข้อมูล", style: TextStyle(fontSize: 20)),
-          );
-        } else {
+    return FutureBuilder(
+      future: getOrganization(),
+      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        // ดึงข้อมูลจาก URL มาครบเรียบร้อยจะให้ทำอะไร
+        if (snapshot.connectionState == ConnectionState.done) {
+          var result = snapshot.data;
           return ListView.builder(
-            itemCount: provider.users.length,
+            itemCount: _dataFromAPI.length,
             itemBuilder: (context, index) {
-              User data = provider.users[index];
-              return buildCard(index, context, data);
+              Member objData = result[0].memberId[index];
+              return buildCard(index, context, objData);
             },
           );
         }
+        return LinearProgressIndicator(); // Loading...
       },
     );
   }
 
-  Card buildCard(int index, BuildContext context, User user) {
+  Card buildCard(int index, BuildContext context, Member member) {
     return Card(
       elevation: 5,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
       child: ListTile(
-        title: Text(user.tel.toString()),
-        subtitle: Text(user.name.toString()),
+        title: Text(member.tel.toString()),
+        subtitle: Text(member.usrName.toString()),
         onTap: () {
           goToDetailMemberScreen(context);
         },

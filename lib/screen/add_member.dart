@@ -1,12 +1,12 @@
 import 'package:collecting_points/provider/user_provider.dart';
-import 'package:collecting_points/screen/usr_home.dart';
+import 'package:collecting_points/screen/homeUsr.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:collecting_points/model/user.dart';
 import 'package:provider/provider.dart';
 
-import 'home.dart';
+import 'homeOg.dart';
 
 class AddMemberScreen extends StatefulWidget {
   const AddMemberScreen({Key? key}) : super(key: key);
@@ -137,7 +137,7 @@ class _AddMemberScreenState extends State<AddMemberScreen> {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(builder: (context) {
-                                    return HomeScreen();
+                                    return HomeScreenOg();
                                   }),
                                 );
                               } catch (e) {
