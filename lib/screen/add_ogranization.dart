@@ -1,12 +1,9 @@
 import 'package:collecting_points/model/organization.dart';
 import 'package:collecting_points/model/user.dart';
-import 'package:collecting_points/provider/organization_provider.dart';
 import 'package:collecting_points/screen/homeOg.dart';
-import 'package:collecting_points/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:provider/provider.dart';
 
 class AddOrganizationScreen extends StatefulWidget {
   const AddOrganizationScreen({Key? key}) : super(key: key);

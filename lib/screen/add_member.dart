@@ -1,10 +1,7 @@
-import 'package:collecting_points/provider/user_provider.dart';
-import 'package:collecting_points/screen/homeUsr.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:collecting_points/model/user.dart';
-import 'package:provider/provider.dart';
 
 import 'homeOg.dart';
 
